@@ -1,13 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
-const mapStateToProps = (state, ownProps) => {
-    return {
-        props: ownProps
-    };
-};
 
-const ProgressBarConnect = ({ props }) => {
+const ProgressBar = (props) => {
         return (
             <div className="progress md-progress" >
                 <div className="progress-bar"
@@ -22,5 +16,4 @@ const ProgressBarConnect = ({ props }) => {
         )
     }
 
-const ProgressBar = connect(mapStateToProps)(ProgressBarConnect);
 export default ProgressBar;

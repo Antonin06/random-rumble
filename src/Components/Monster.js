@@ -7,7 +7,6 @@ const mapState = state => {
     return { monster: state.monster };
 };
 
-
 const MonsterConnect = ({ monster }) => (
   <section>
       <div className="container">
@@ -26,15 +25,13 @@ const MonsterConnect = ({ monster }) => (
                   </div>
                 </div>
               </div>
-              <ProgressBar pv={monster.pv} pvMax={monster.pvMax} />
+              <ProgressBar pv={monster.pv} pvMax={monster.pvMax} bgType='bg-danger' faType='fa-heart' barName=' : pv' />
             </div>
           </div>
         </div>
       </div>
     </section >
-
   )
 
 const Monster = connect(mapState)(MonsterConnect)
-
 export default Monster;

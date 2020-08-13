@@ -1,4 +1,3 @@
-
 const initialState = {
   players: {
         1: { name: "John", pv: 100, pvMax: 100, mana: 30, manaMax: 30, id: 1 },
@@ -8,12 +7,28 @@ const initialState = {
       },
 
   monster: {
-            pv: 800, pvMax: 800
+            pv: 900, pvMax: 900
   }
 };
 
 function rootReducer(state = initialState, action) {
-  return state;
-};
+    switch (action.type) {
+    case "HIT_MONSTER":
+    return { ...state,
+       monster:{ ...state.monster,
+       pv: state.monster.pv-70},
+     }
+     case "HIT_BACK":
+     const id = action.payload
+     return { ...state,
+        players:{ ...state.players,
+        [id]: { ...state.players[id],
+        pv: state.players[id].pv-15 },
+      }}
+    default:
+    return state;
+    }
+}
+
 
 export default rootReducer;

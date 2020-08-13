@@ -1,16 +1,10 @@
-import React, { useState } from 'react';
-import { createStore } from 'redux';
+import React from 'react';
 import PlayerCard from './PlayerCard';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
+const PlayerList = () => {
 
-const mapState = (state, ownProps) => {
-    return {
-      players: state.players
-    };
-};
-
-const PlayerListConnect = ({ players }) => {
+const players = useSelector((state) => state.players)
 
   const displayPlayers = () => {
     return Object.keys(players).map(key => (
@@ -24,7 +18,5 @@ const PlayerListConnect = ({ players }) => {
       </div>
     );
   }
-
-const PlayerList = connect(mapState)(PlayerListConnect)
 
 export default PlayerList;
